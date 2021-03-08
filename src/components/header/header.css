@@ -1,0 +1,30 @@
+nav {
+  background-color: #d0d0d0;
+}
+
+.nav-item {
+  cursor: pointer;
+  text-align: center;
+}
+
+.nav-item:hover {
+  background-color: #afaff5;
+}
+.link {
+  flex-grow: 1;
+  height: 64;
+  text-align: center;
+  padding: 1%;
+  color: white;
+  text-decoration: none;
+}
+
+.link:hover {
+  zoom: 150%;
+  flex-grow: 1;
+  height: 64;
+  text-align: center;
+  padding: 1%;
+  color: white;
+  text-decoration: none;
+}
