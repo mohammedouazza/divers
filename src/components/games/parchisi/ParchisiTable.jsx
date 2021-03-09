@@ -1,13 +1,9 @@
-import { Grid } from "@material-ui/core";
 import React from "react";
-import WorriorHome from "./WorriorHome";
 
 const nbrLignes = [0, 1, 2];
 const nbrCells = [0, 1, 2, 3, 4, 5, 6];
-const backgroundColors = ["#a8160c", "#0b9c4a", "#d1b22a", "#110d91"];
 
-const ParchisiTable = (props) => {
-  let counter = 52;
+const ParchisiTable = () => {
   return (
     <div style={{ border: "2px solid black" }}>
       {nbrLignes.map((i) => (

@@ -1,6 +1,5 @@
 import { IconButton } from "@material-ui/core";
 import React from "react";
-import games from "../store/games";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
 import Parchisi from "./games/parchisi/Parchisi";
@@ -20,7 +19,6 @@ const styles = {
 };
 const GameStart = (props) => {
   const idGame = props.match.params.id;
-  const game = games.find((g, i) => g.id === parseInt(idGame));
   return (
     <div style={styles.root}>
       <IconButton aria-label="delete" style={styles.backStyle}>

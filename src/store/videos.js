@@ -2,8 +2,7 @@ import bbbVideo from "../videos/mov_bbb.mp4";
 import exempleVideo from "../videos/recette_int_teams_smart.mp4";
 import dogVideo from "../videos/dog.mp4";
 import catVideo from "../videos/cat.mp4";
-
-export default [
+const videos = [
   {
     id: 0,
     name: "BBB Video",
@@ -53,3 +52,4 @@ export default [
     src: catVideo,
   },
 ];
+export default videos;

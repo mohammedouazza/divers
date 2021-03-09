@@ -4,8 +4,7 @@ import Dice3Imge from "../img/dices/dice_3.png";
 import Dice4Imge from "../img/dices/dice_4.png";
 import Dice5Imge from "../img/dices/dice_5.png";
 import Dice6Imge from "../img/dices/dice_6.png";
-
-export default [
+const dices = [
   {
     id: 1,
     img: Dice1Imge,
@@ -31,3 +30,4 @@ export default [
     img: Dice6Imge,
   },
 ];
+export default dices;

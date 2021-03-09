@@ -1,6 +1,5 @@
 import { TOGGLE_NIGHT_MODE } from "../actions/actionTypes";
-
-export default (state = { nightMode: false }, action) => {
+const nightModeReducer = (state = { nightMode: false }, action) => {
   switch (action.type) {
     case TOGGLE_NIGHT_MODE:
       return {
@@ -11,3 +10,4 @@ export default (state = { nightMode: false }, action) => {
       return state;
   }
 };
+export default nightModeReducer;
