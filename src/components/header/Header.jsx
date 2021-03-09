@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
 import {
@@ -8,6 +8,8 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
+import { TOGGLE_NIGHT_MODE } from "../../actions/actionTypes";
+import { connect } from "react-redux";
 
 const styles = {
   link: {
@@ -34,11 +36,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = (props) => {
   const classes = useStyles();
-  const [nightMode, setNightMode] = useState(false);
+  const nightMode = props.nightMode;
   const handleNightMode = () => {
-    setNightMode(!nightMode);
+    props.toggleNightMode();
   };
   document.getElementById("root").style.backgroundColor = nightMode
     ? "#212121"
@@ -73,4 +75,13 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    nightMode: state.nightMode.nightMode,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleNightMode: () => dispatch({ type: TOGGLE_NIGHT_MODE }),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

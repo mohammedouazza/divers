@@ -10,6 +10,7 @@ import {
   Typography,
   Zoom,
 } from "@material-ui/core";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Video = ({ video, handleSelectVideo }) => {
+const Video = ({ video, handleSelectVideo, nightMode }) => {
   const classes = useStyles();
 
   return (
@@ -28,7 +29,10 @@ const Video = ({ video, handleSelectVideo }) => {
       style={{ transitionDelay: video.id + "00ms" }}
     >
       <Grid item xs={3}>
-        <Card className={classes.root}>
+        <Card
+          className={classes.root}
+          style={{ backgroundColor: nightMode ? "#212121" : "" }}
+        >
           <CardActionArea onClick={() => handleSelectVideo(video)}>
             <video src={video.src} width="345" height="190"></video>
 
@@ -37,11 +41,16 @@ const Video = ({ video, handleSelectVideo }) => {
                 gutterBottom
                 variant="h5"
                 component="h2"
-                style={{ color: "black" }}
+                style={{ color: nightMode ? "white" : "black" }}
               >
                 {video.name}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                component="p"
+                style={{ color: nightMode ? "white" : "black" }}
+              >
                 Score: {video.name}
               </Typography>
             </CardContent>
@@ -65,4 +74,9 @@ const Video = ({ video, handleSelectVideo }) => {
   );
 };
 
-export default Video;
+const mapStateToProps = (state) => {
+  return {
+    nightMode: state.nightMode.nightMode,
+  };
+};
+export default connect(mapStateToProps, null)(Video);

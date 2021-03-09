@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
 
 import games from "../../../store/games";
-import { Box, Grid, makeStyles } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 import PlayModal from "../../PlayModal";
 import { Skeleton } from "@material-ui/lab";
 
@@ -17,32 +17,9 @@ const LoadingComponent = (
   </Box>
 );
 
-function getModalStyle() {
-  const top = 50;
-  const left = 50;
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: "absolute",
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
-
 let effect = true;
 
 const Play = () => {
-  const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle);
   const [openModal, setOpenModal] = useState(false);
   const [bodyModal, setBodyModal] = useState("");
 
@@ -52,10 +29,10 @@ const Play = () => {
     };
   });
   const body = (
-    <div style={modalStyle} className={classes.paper}>
+    <>
       <h2 id="simple-modal-title">{bodyModal}</h2>
       <p id="modal-description">{bodyModal}</p>
-    </div>
+    </>
   );
   const handleOpenModal = (body) => {
     setBodyModal(body);
@@ -66,14 +43,13 @@ const Play = () => {
   };
   return (
     <>
-      <Grid container className={classes.grid} spacing={1}>
+      <Grid container spacing={1}>
         {games.map((game) => (
-          <Suspense fallback={LoadingComponent}>
+          <Suspense fallback={LoadingComponent} key={game.id}>
             <PlaySingle
               game={game}
               handleOpenModal={handleOpenModal}
               effect={effect}
-              key={game.id}
             />
           </Suspense>
         ))}

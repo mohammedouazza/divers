@@ -20,7 +20,7 @@ nav {
 }
 
 .link:hover {
-  zoom: 150%;
+  font-size: larger;
   flex-grow: 1;
   height: 64;
   text-align: center;
