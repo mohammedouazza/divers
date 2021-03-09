@@ -1,4 +1,4 @@
-export default {
+const firebaseConfig = {
   apiKey: "AIzaSyDynjFyfviGZ5eVhcREmlSN8tI-CTfnr0o",
   authDomain: "divers-c2d08.firebaseapp.com",
   databaseURL:
@@ -9,3 +9,4 @@ export default {
   appId: "1:415137723202:web:413b3eb5476262b1bb0edb",
   measurementId: "G-P02PS0004H",
 };
+export default firebaseConfig;
