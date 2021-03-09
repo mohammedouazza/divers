@@ -8,8 +8,6 @@ import store from "./store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import firebase from "./firebase";
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
